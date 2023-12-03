@@ -13,7 +13,11 @@ const apiSecret = process.env.API_SECRET;
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: '*'
+    }
+));
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
