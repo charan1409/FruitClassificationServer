@@ -6,12 +6,14 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 require("dotenv").config();
+const cors = require("cors");
 
 const apiKey = process.env.API_KEY;
 const apiSecret = process.env.API_SECRET;
 
 app.use(express.json());
 
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
