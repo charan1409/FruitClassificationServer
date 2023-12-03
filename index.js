@@ -52,7 +52,7 @@ app.post("/upload",upload.single("image"), (req, res) => {
         res.json({name: response.data.result.tags[0].tag.en});
         })
         .catch((err) => {
-        res.json({error: err});
+        res.json({error: err.message});
         });
 });
 
