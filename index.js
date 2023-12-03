@@ -19,7 +19,7 @@ app.use(cors(
     }
 ));
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.json({msg: "started"});
 });
 
 const storage = multer.diskStorage({
@@ -49,7 +49,7 @@ app.post("/upload",upload.single("image"), (req, res) => {
         data: form,
     })
         .then((response) => {
-        res.send(response.data.result.tags[0].tag.en);
+        res.json({name: response.data.result.tags[0].tag.en});
         })
         .catch((err) => {
         console.log(err);
